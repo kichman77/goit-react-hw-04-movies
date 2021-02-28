@@ -1,0 +1,19 @@
+.homeList {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+}
+
+.homeList li a {
+  padding: 20px;
+  font-size: 1.5rem;
+}
+.homeList li a:hover,
+.homeList li a:focus {
+  color: blue;
+}
+.homeTitle {
+  text-transform: uppercase;
+  font-size: 3rem;
+  color: rgb(69, 71, 71);
+}

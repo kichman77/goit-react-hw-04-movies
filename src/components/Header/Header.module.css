@@ -1,0 +1,23 @@
+.header {
+  border-bottom: 1px solid grey;
+  box-shadow: 0 0 20px grey;
+}
+
+.header ul {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.header ul li:not(:last-child) {
+  margin-right: 20px;
+}
+
+.header a {
+  padding: 20px;
+  text-transform: uppercase;
+  font-size: 2rem;
+}
+.header a:hover,
+.header a:focus {
+  color: blue;
+}
