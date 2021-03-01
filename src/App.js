@@ -1,14 +1,10 @@
-import React, { Component } from "react";
+import React, { Component, Suspense } from "react";
+import { Switch, Route } from "react-router-dom";
+import {v4 as id} from "uuid"
 import "./App.css";
-import {
-  Cast,
-  HomePage,
-  MovieDetailsPage,
-  MoviesPage,
-  Reviews,
-  Header,
-} from "./components";
+import { HomePage, MoviesPage, Header } from "./components";
 import api from "./services/apiService";
+import routes from "./routes";
 
 class App extends Component {
   state = {};
@@ -22,10 +18,16 @@ class App extends Component {
       <div className="App">
         <Header />
         {/* <HomePage /> */}
-        <MoviesPage />
-        {/* <Cast />
-        <MovieDetailsPage />
-        <Reviews /> */}
+        {/* <MoviesPage /> */}
+        <Suspense fallback="loading...">
+          <Switch>
+            {/* <Route exact path="/" component={HomePage} />
+            <Route exact path="/movies" component={MoviesPage} /> */}
+            {routes.map((route)=>{
+              return <Route key={id()} {...route}/>
+            })}
+          </Switch>
+        </Suspense>
       </div>
     );
   }
