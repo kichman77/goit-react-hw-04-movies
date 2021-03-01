@@ -15,12 +15,22 @@ const getTrends = () => {
       return response.data;
     })
     .then((data) => {
-      console.log(data.results);
+      // console.log(data.results);
       return data.results;
     });
+};
+const getMovies = (query) => {
+  let params = `search/movie?api_key=${key}&language=en-US&query=${query}&page=1&include_adult=false`;
+  return axios.get(url + params).then((response) => {
+    // console.log(response);
+    return response.data
+  }).then(data=>{
+    // console.log(data);
+    return data.results
+  });
 };
 const getMovieInfo = (movie_id) => {
   let params = `movie/${movie_id}?api_key=${key}&language=en-US`;
   return axios.get(url + params);
 };
-export default { getTrends, getMovieInfo };
+export default { getTrends, getMovies, getMovieInfo };

@@ -1,0 +1,52 @@
+.moviesList {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+}
+
+.moviesList li a {
+  padding: 20px;
+  font-size: 1.5rem;
+}
+.moviesList li a:hover,
+.moviesList li a:focus {
+  color: blue;
+}
+.moviesTitle {
+  margin-top: 50px;
+  text-transform: uppercase;
+  font-size: 3rem;
+  color: rgb(69, 71, 71);
+}
+.form {
+  width: 50%;
+  margin: 20px auto;
+  padding: 20px;
+  box-shadow: 0 0 20px black;
+}
+.form:hover {
+  box-shadow: 0 0 20px coral;
+  transition: box-shadow 0.4s ease-out;
+}
+.form input {
+  padding: 10px;
+  border: none;
+  border-bottom: 1px solid #000;
+  margin-right: 20px;
+  background: transparent;
+}
+.form button {
+  padding: 10px 20px;
+  border: none;
+  color: white;
+  background: black;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+}
+.form button:hover {
+  background: coral;
+}
+.form input:hover{
+  border-bottom: 1px solid coral;
+
+}

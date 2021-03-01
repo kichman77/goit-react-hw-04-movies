@@ -1,13 +1,21 @@
 import React, { Component } from "react";
-import styles from "./HomePage.module.css";
 import { v4 as id } from "uuid";
+import { Link } from "react-router-dom";
 import api from "../../services/apiService";
+import styles from "./HomePage.module.css";
 
 class HomePage extends Component {
   state = {
     movie_id: ``,
+    trends: [],
   };
-  componentDidMount() {}
+  componentDidMount() {
+    api.getTrends().then((result) => {
+      this.setState({
+        trends: [...result],
+      });
+    });
+  }
   componentDidUpdate(prevProps, prevState) {}
   componentWillUnmount() {}
 
@@ -18,7 +26,7 @@ class HomePage extends Component {
     });
   };
   render() {
-    const { trends } = this.props;
+    const { trends } = this.state;
     return (
       <>
         <h2 className={styles.homeTitle}>Trending today</h2>
@@ -27,9 +35,7 @@ class HomePage extends Component {
             // console.log(movie);
             return (
               <li onClick={this.handleClick} key={id()}>
-                <a data-id={movie.id} href="#">
-                  {movie.title}
-                </a>
+                <Link to="">{movie.title}</Link>
               </li>
             );
           })}

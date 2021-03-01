@@ -11,16 +11,8 @@ import {
 import api from "./services/apiService";
 
 class App extends Component {
-  state = {
-    trends: [],
-  };
-  componentDidMount() {
-    api.getTrends().then((result) => {
-      this.setState({
-        trends:[...result]
-      });
-    });
-  }
+  state = {};
+  componentDidMount() {}
   componentDidUpdate(prevProps, prevState) {}
 
   componentWillMount() {}
@@ -29,11 +21,11 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <Cast />
-        <HomePage trends={this.state.trends}/>
-        <MovieDetailsPage />
+        {/* <HomePage /> */}
         <MoviesPage />
-        <Reviews />
+        {/* <Cast />
+        <MovieDetailsPage />
+        <Reviews /> */}
       </div>
     );
   }
