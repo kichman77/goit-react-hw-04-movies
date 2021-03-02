@@ -1,0 +1,26 @@
+.cardWraper {
+  display: flex;
+  width: 80%;
+  padding: 10px;
+  border: 1px solid black;
+}
+.imgWraper {
+  width: 50%;
+  overflow: hidden;
+}
+.movieInfo {
+  width: 50%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-flow: column;
+  padding: 0 1rem;
+}
+.movieInfo h3 {
+  text-transform: uppercase;
+  text-align: center;
+  margin: 2rem auto;
+}
+.movieInfo p {
+  line-height: 2em;
+}

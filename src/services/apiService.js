@@ -29,8 +29,14 @@ const getMovies = (query) => {
     return data.results
   });
 };
-const getMovieInfo = (movie_id) => {
-  let params = `movie/${movie_id}?api_key=${key}&language=en-US`;
-  return axios.get(url + params);
+const getMovieInfo = (id) => {
+  let params = `movie/${id}?api_key=${key}&language=en-US`;
+  return axios.get(url + params).then((response)=>{
+    // console.log(response);
+    return response.data
+  }).then((data)=>{
+    // console.log(data);
+    return data
+  });
 };
 export default { getTrends, getMovies, getMovieInfo };
