@@ -6,7 +6,7 @@ import styles from "./HomePage.module.css";
 
 class HomePage extends Component {
   state = {
-    movie_id: ``,
+    // movie_id: ``,
     trends: [],
   };
   componentDidMount() {
@@ -19,14 +19,15 @@ class HomePage extends Component {
   componentDidUpdate(prevProps, prevState) {}
   componentWillUnmount() {}
 
-  handleClick = (e) => {
-    console.log(e.target.dataset.id);
-    this.setState({
-      movie_id: e.target.dataset.id,
-    });
-  };
+  // handleClick = (e) => {
+  //   console.log(e.target.dataset.id);
+  //   this.setState({
+  //     movie_id: e.target.dataset.id,
+  //   });
+  // };
   render() {
     const { trends } = this.state;
+    const { location } = this.props;
     return (
       <>
         <h2 className={styles.homeTitle}>Trending today</h2>
@@ -34,8 +35,15 @@ class HomePage extends Component {
           {trends.map((movie) => {
             // console.log(movie);
             return (
-              <li onClick={this.handleClick} key={id()}>
-                <Link to="">{movie.title}</Link>
+              <li key={id()}>
+                <Link
+                  to={{
+                    pathname: `/movies/${movie.id}`,
+                    state: { from: location },
+                  }}
+                >
+                  {movie.title}
+                </Link>
               </li>
             );
           })}

@@ -21,22 +21,48 @@ const getTrends = () => {
 };
 const getMovies = (query) => {
   let params = `search/movie?api_key=${key}&language=en-US&query=${query}&page=1&include_adult=false`;
-  return axios.get(url + params).then((response) => {
-    // console.log(response);
-    return response.data
-  }).then(data=>{
-    // console.log(data);
-    return data.results
-  });
+  return axios
+    .get(url + params)
+    .then((response) => {
+      // console.log(response);
+      return response.data;
+    })
+    .then((data) => {
+      // console.log(data);
+      return data.results;
+    });
 };
 const getMovieInfo = (id) => {
   let params = `movie/${id}?api_key=${key}&language=en-US`;
-  return axios.get(url + params).then((response)=>{
-    // console.log(response);
-    return response.data
-  }).then((data)=>{
-    // console.log(data);
-    return data
-  });
+  return axios
+    .get(url + params)
+    .then((response) => {
+      // console.log(response);
+      return response.data;
+    })
+    .then((data) => {
+      // console.log(data);
+      return data;
+    });
 };
-export default { getTrends, getMovies, getMovieInfo };
+const getCast = (id) => {
+  let params = `movie/${id}/credits?api_key=${key}&language=en-US`;
+  return axios
+    .get(url + params)
+    .then((response) => {
+      // console.log(response);
+      return response.data;
+    })
+    .then((data) => data.cast);
+};
+const getReviews = (id) => {
+  let params = `movie/${id}/reviews?api_key=${key}&language=en-US&page=1`;
+  return axios
+    .get(url + params)
+    .then((response) => {
+      console.log(response);
+      return response.data;
+    })
+    .then((data) => data);
+};
+export default { getTrends, getMovies, getMovieInfo, getCast, getReviews };

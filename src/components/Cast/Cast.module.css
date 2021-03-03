@@ -1,0 +1,13 @@
+.castList {
+  display: flex;
+  justify-content: space-evenly;
+  flex-flow: row wrap;
+  align-items: center;
+}
+.castList li {
+  width: 25%;
+  padding: 5px;
+}
+.imgWrapper {
+  overflow: hidden;
+}

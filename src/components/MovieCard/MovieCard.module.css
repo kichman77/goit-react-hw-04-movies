@@ -1,8 +1,13 @@
 .cardWraper {
   display: flex;
+  flex-flow: column;
   width: 80%;
   padding: 10px;
   border: 1px solid black;
+}
+.card {
+  display: flex;
+  padding: 20px;
 }
 .imgWraper {
   width: 50%;
@@ -23,4 +28,25 @@
 }
 .movieInfo p {
   line-height: 2em;
+}
+.additional {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 20px auto;
+}
+.additional a {
+  padding: 20px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-bottom: 2px solid;
+}
+.additional li:not(:last-child) {
+  margin-right: 20px;
+}
+.additional a:hover,
+.additional a:focus {
+  border-color: coral;
+  color: coral;
+  transition: all 0.5s ease-out;
 }

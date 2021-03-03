@@ -1,6 +1,7 @@
 import React from "react";
 import { Component } from "react";
 import { Link } from "react-router-dom";
+import { v4 as id } from "uuid";
 import api from "../../services/apiService";
 import styles from "./MoviesPage.module.css";
 
@@ -18,7 +19,7 @@ class MoviesPage extends Component {
   }
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e.target.elements.query.value);
+    // console.log(e.target.elements.query.value);
     this.setState({ query: e.target.elements.query.value });
   };
   handleChange = (e) => {
@@ -26,13 +27,15 @@ class MoviesPage extends Component {
   };
   render() {
     const { handleChange, handleSubmit } = this;
+    // console.log(this.props.location);
+    const { location } = this.props;
     return (
       <>
         <h2 className={styles.moviesTitle}>MoviesPage</h2>
         <form className={styles.form} onSubmit={handleSubmit}>
           <label htmlFor="">
             <input
-            placeholder="Your movie"
+              placeholder="Your movie"
               onChange={handleChange}
               type="text"
               name="query"
@@ -45,8 +48,15 @@ class MoviesPage extends Component {
           {this.state.movies.map((movie) => {
             // console.log(movie);
             return (
-              <li>
-                <Link to="">{movie.title}</Link>
+              <li key={id()}>
+                <Link
+                  to={{
+                    pathname: `/movies/${movie.id}`,
+                    state: {from: location}
+                  }}
+                >
+                  {movie.title}
+                </Link>
               </li>
             );
           })}
