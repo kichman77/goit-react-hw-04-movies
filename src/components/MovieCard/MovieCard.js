@@ -1,6 +1,7 @@
 import React, { lazy } from "react";
 import { Link, Switch, Route } from "react-router-dom";
 import styles from "./MovieCard.module.css";
+import PropTypes from "prop-types";
 
 const Cast = lazy(() => {
   return import("../Cast/Cast");
@@ -54,3 +55,11 @@ const MovieCard = ({ title, overview, poster_path, movieId, state }) => {
 };
 
 export default MovieCard;
+
+MovieCard.propTypes = {
+  title: PropTypes.string,
+  overview: PropTypes.string,
+  poster_path: PropTypes.string,
+  movieId: PropTypes.string,
+  state: PropTypes.shape({ from: PropTypes.object }),
+};

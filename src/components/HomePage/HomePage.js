@@ -1,10 +1,17 @@
 import React, { Component } from "react";
 import { v4 as id } from "uuid";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import api from "../../services/apiService";
 import styles from "./HomePage.module.css";
 
 class HomePage extends Component {
+  static propTypes = {
+    location: PropTypes.shape({
+      pathname: PropTypes.string.isRequired,
+      state: PropTypes.shape({ from: PropTypes.string.isRequired }),
+    }),
+  };
   state = {
     // movie_id: ``,
     trends: [],
@@ -19,15 +26,10 @@ class HomePage extends Component {
   componentDidUpdate(prevProps, prevState) {}
   componentWillUnmount() {}
 
-  // handleClick = (e) => {
-  //   console.log(e.target.dataset.id);
-  //   this.setState({
-  //     movie_id: e.target.dataset.id,
-  //   });
-  // };
   render() {
     const { trends } = this.state;
     const { location } = this.props;
+    // console.log(location);
     return (
       <>
         <h2 className={styles.homeTitle}>Trending today</h2>

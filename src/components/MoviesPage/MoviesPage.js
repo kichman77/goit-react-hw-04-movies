@@ -4,8 +4,15 @@ import { Link } from "react-router-dom";
 import { v4 as id } from "uuid";
 import api from "../../services/apiService";
 import styles from "./MoviesPage.module.css";
+import PropTypes from "prop-types";
 
 class MoviesPage extends Component {
+  static propTypes = {
+    location: PropTypes.shape({
+      pathname: PropTypes.string.isRequired,
+      state: PropTypes.shape({ from: PropTypes.string.isRequired }),
+    }),
+  };
   state = {
     query: "",
     page: 1,
@@ -52,7 +59,7 @@ class MoviesPage extends Component {
                 <Link
                   to={{
                     pathname: `/movies/${movie.id}`,
-                    state: {from: location}
+                    state: { from: location },
                   }}
                 >
                   {movie.title}

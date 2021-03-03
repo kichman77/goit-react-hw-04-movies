@@ -1,9 +1,13 @@
 import React, { Component } from "react";
 import { v4 as id } from "uuid";
+import PropTypes from 'prop-types'
 import api from "../../services/apiService";
 import styles from "./Cast.module.css";
 
 class Cast extends Component {
+  static propTypes = {
+    movieId: PropTypes.string,
+  };
   state = {
     cast: [],
   };

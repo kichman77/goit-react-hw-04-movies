@@ -1,16 +1,20 @@
 import React, { Component } from "react";
 import { v4 as id } from "uuid";
+import PropTypes from "prop-types";
 import api from "../../services/apiService";
 import styles from "./Reviews.module.css";
 
 class Reviews extends Component {
+  static propTypes = {
+    movieId: PropTypes.string,
+  };
   state = {
     reviews: [],
   };
   componentDidMount() {
     const { movieId } = this.props.match.params;
     api.getReviews(movieId).then((response) => {
-      console.log(response);
+      // console.log(response);
       this.setState({ reviews: [...response] });
     });
   }
@@ -19,7 +23,7 @@ class Reviews extends Component {
       <>
         <ul className={styles.reviews}>
           {this.state.reviews.map((item) => {
-            console.log(item);
+            // console.log(item);
             return (
               <li key={id()}>
                 <h3 className={styles.author}>{item.author}</h3>

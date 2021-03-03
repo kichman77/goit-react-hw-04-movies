@@ -2,8 +2,14 @@ import React, { Component } from "react";
 import api from "../../services/apiService";
 import MovieCard from "../MovieCard/MovieCard";
 import styles from "./MovieDetailsPage.module.css";
+import PropTypes from "prop-types";
 
 class MovieDetailsPage extends Component {
+  static propTypes = {
+    state: PropTypes.shape({ from: PropTypes.string.isRequired }),
+    history: PropTypes.shape({ push: PropTypes.func.isRequired }),
+    movieId: PropTypes.string,
+  };
   state = {
     movie: null,
   };
@@ -18,6 +24,7 @@ class MovieDetailsPage extends Component {
   handleBack = () => {
     const { state } = this.props.location;
     const { history } = this.props;
+    // console.log(history);
     if (state && state.from) {
       history.push(state.from);
       return;
