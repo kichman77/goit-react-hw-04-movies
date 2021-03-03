@@ -11,11 +11,16 @@ const Reviews = lazy(() => {
 });
 const MovieCard = ({ title, overview, poster_path, movieId, state }) => {
   const path = `https://image.tmdb.org/t/p/w500`;
+  let profilePath =
+    poster_path !== null
+      ? path + poster_path
+      : `https://via.placeholder.com/500x750.png?text=NO+POSTER`;
+
   return (
     <div className={styles.cardWraper}>
       <div className={styles.card}>
         <div className={styles.imgWraper}>
-          <img src={path + poster_path} alt={title} />
+          <img src={profilePath} alt={title} />
         </div>
         <div className={styles.movieInfo}>
           <h3>{title}</h3>

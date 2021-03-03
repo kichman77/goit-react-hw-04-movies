@@ -10,28 +10,39 @@ class Reviews extends Component {
   };
   state = {
     reviews: [],
+    notification: "",
   };
   componentDidMount() {
     const { movieId } = this.props.match.params;
     api.getReviews(movieId).then((response) => {
       // console.log(response);
-      this.setState({ reviews: [...response] });
+      response.langth > 0
+        ? this.setState({ reviews: [...response], notification: "" })
+        : this.setState({ reviews: [], notification: "Noone review yet" });
     });
   }
   render() {
+    const { notification, reviews } = this.state;
     return (
       <>
-        <ul className={styles.reviews}>
-          {this.state.reviews.map((item) => {
-            // console.log(item);
-            return (
-              <li key={id()}>
-                <h3 className={styles.author}>{item.author}</h3>
-                <p className={styles.content}>{item.content}</p>
-              </li>
-            );
-          })}
-        </ul>
+        {notification ? (
+          <p>{notification}</p>
+        ) : (
+          <ul className={styles.reviews}>
+            {reviews.map((item) => {
+              // console.log(item);
+              const { author, content } = item;
+              let reviewAuthor = author ? author : "anonimus";
+              let reviewContent = content ? content : "...";
+              return (
+                <li key={id()}>
+                  <h3 className={styles.author}>{reviewAuthor}</h3>
+                  <p className={styles.content}>{reviewContent}</p>
+                </li>
+              );
+            })}
+          </ul>
+        )}
       </>
     );
   }
