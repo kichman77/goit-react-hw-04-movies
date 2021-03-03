@@ -1,0 +1,12 @@
+.reviews {
+  padding: 10px;
+}
+.reviews li:not(:last-child) {
+  margin-bottom: 20px;
+}
+.author {
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  font-weight: bold;
+}

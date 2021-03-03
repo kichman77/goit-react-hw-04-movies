@@ -10,7 +10,7 @@ class Cast extends Component {
   componentDidMount() {
     const { movieId } = this.props.match.params;
     api.getCast(movieId).then((response) => {
-      console.log(response);
+      // console.log(response);
       this.setState({ cast: [...response] });
     });
   }
@@ -23,7 +23,7 @@ class Cast extends Component {
       <>
         <ul className={styles.castList}>
           {this.state.cast.map((item) => {
-            console.log(item.profile_path);
+            // console.log(item.profile_path);
             let profilePath =
               item.profile_path !== null
                 ? path + item.profile_path
