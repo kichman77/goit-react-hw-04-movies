@@ -60,7 +60,7 @@ const getReviews = (id) => {
   return axios
     .get(url + params)
     .then((response) => {
-      // console.log(response);
+      console.log(response);
       return response.data;
     })
     .then((data) => data.results);

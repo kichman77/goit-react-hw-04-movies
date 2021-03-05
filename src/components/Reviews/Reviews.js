@@ -15,8 +15,8 @@ class Reviews extends Component {
   componentDidMount() {
     const { movieId } = this.props.match.params;
     api.getReviews(movieId).then((response) => {
-      // console.log(response);
-      response.langth > 0
+      console.log(response);
+      response.length > 0
         ? this.setState({ reviews: [...response], notification: "" })
         : this.setState({ reviews: [], notification: "Noone review yet" });
     });

@@ -22,6 +22,7 @@ class MoviesPage extends Component {
   };
   componentDidMount() {
     const { query } = queryString.parse(this.props.location.search);
+    console.log(query);
     if (query) {
       api.getMovies(query).then((movies) => {
         // this.setState({ movies: [...movies] });
@@ -39,7 +40,7 @@ class MoviesPage extends Component {
     const { query: newQuery } = queryString.parse(this.props.location.search);
     const { query: oldQuery } = queryString.parse(prevProps.location.search);
 
-    if (newQuery !== oldQuery) {
+    if (newQuery !== oldQuery && newQuery !== "") {
       api.getMovies(newQuery).then((movies) => {
         // this.setState({ movies: [...movies] });
         movies.length > 0
@@ -49,8 +50,6 @@ class MoviesPage extends Component {
               notification: "Sorry!!! Information not found",
             });
       });
-    } else {
-      // alert("Enter your request!!!")
     }
   }
   handleSubmit = (e) => {

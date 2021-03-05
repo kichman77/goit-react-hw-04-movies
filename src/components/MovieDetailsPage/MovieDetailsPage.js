@@ -30,7 +30,7 @@ class MovieDetailsPage extends Component {
       return;
     }
     history.push("/");
-  };
+  };   
 
   render() {
     const { handleBack } = this;

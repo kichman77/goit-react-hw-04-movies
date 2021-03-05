@@ -56,7 +56,7 @@ const MovieCard = ({ title, overview, poster_path, movieId, state }) => {
         </Switch>
       </div>
     </div>
-  );
+  );    
 };
 
 export default MovieCard;

@@ -38,7 +38,7 @@ class HomePage extends Component {
             // console.log(movie);
             return (
               <li key={id()}>
-                <Link
+                <Link 
                   to={{
                     pathname: `/movies/${movie.id}`,
                     state: { from: location },
