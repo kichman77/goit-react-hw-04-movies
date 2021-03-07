@@ -7,6 +7,7 @@
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.8.0",
     "axios": "^0.21.1",
+    "netlify-cli": "^3.10.6",
     "prop-types": "^15.7.2",
     "query-string": "^6.14.1",
     "react": "^17.0.1",
@@ -22,6 +23,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "login": "netlify login",
     "predeploy": "npm run build",
     "deploy": "netlify deploy -p"
   },

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { v4 as id } from "uuid";
 import PropTypes from "prop-types";
 import api from "../../services/apiService";
 import styles from "./Reviews.module.css";
@@ -23,6 +22,7 @@ class Reviews extends Component {
   }
   render() {
     const { notification, reviews } = this.state;
+
     return (
       <>
         {notification ? (
@@ -31,11 +31,11 @@ class Reviews extends Component {
           <ul className={styles.reviews}>
             {reviews.map((item) => {
               // console.log(item);
-              const { author, content } = item;
+              const { author, content, id } = item;
               let reviewAuthor = author ? author : "anonimus";
               let reviewContent = content ? content : "...";
               return (
-                <li key={id()}>
+                <li key={id}>
                   <h3 className={styles.author}>{reviewAuthor}</h3>
                   <p className={styles.content}>{reviewContent}</p>
                 </li>
